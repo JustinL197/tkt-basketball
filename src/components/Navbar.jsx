@@ -1,26 +1,32 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/tkt_logo.png";
+import Logo from "../assets/tkt_logo_black.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="bg-[#000709] shadow sticky top-0 z-50">
+      <div className="max-w-[120rem] mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
-          <img src={Logo} alt="TKT Logo" className="h-10 w-auto" />
-          <span className="text-xl font-black text-red-600 uppercase italic">
+          <img src={Logo} alt="TKT Logo" className="h-12 w-auto" />
+          <span className="text-[24px] font-black uppercase italic" style={{ color: "#ffffff" }}>
             TKT BASKETBALL
           </span>
         </Link>
 
-        <div className="space-x-6 text-sm">
-          <Link to="/programs" className="text-gray-700 hover:text-blue-500">
+        <div className="space-x-6 text-base flex items-center">
+          <Link to="/programs" className="text-white hover:underline">
             Programs
           </Link>
-          <Link to="/events" className="text-gray-700 hover:text-blue-500">
+          <Link to="/events" className="text-white hover:underline">
             Events
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-blue-500">
+          <Link to="/about" className="text-white hover:underline">
             About
+          </Link>
+          <Link
+            to="/contact"
+            className="bg-white text-[#000709] font-semibold px-4 py-2 rounded hover:bg-gray-100 transition"
+          >
+            Contact Us
           </Link>
         </div>
       </div>
