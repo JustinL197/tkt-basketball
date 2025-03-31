@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/tkt_logo_black.png";
+import Logo from "../assets/tkt_logo_trans_white.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#000709] shadow sticky top-0 z-50">
-      <div className="max-w-[120rem] mx-auto px-4 py-4 flex justify-between items-center">
+    <nav className="bg-[#060a1f] shadow sticky top-0 z-50">
+      <div className="max-w-[120rem] px-16 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
           <img src={Logo} alt="TKT Logo" className="h-12 w-auto" />
-          <span className="text-[24px] font-black uppercase italic" style={{ color: "#ffffff" }}>
+          <span
+            className="text-[18px] font-black uppercase italic"
+            style={{ color: "#ffffff" }}
+          >
             TKT BASKETBALL
           </span>
         </Link>
 
-        <div className="space-x-6 text-base flex items-center">
+        <div className="space-x-6 text-xs flex items-center">
           <Link to="/programs" className="text-white hover:underline">
             Programs
           </Link>
