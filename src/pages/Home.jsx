@@ -60,10 +60,13 @@ const Home = () => {
           autoPlay
           loop
           muted
-          className="absolute top-0 left-0 w-full h-full object-cover object-[center_30%] opacity-70"
+          playsInline
+          controls={false}
+          className="pointer-events-none absolute top-0 left-0 w-full h-full object-cover object-[center_30%] opacity-70"
         >
           <source src={video2} type="video/mp4" />
         </video>
+
         <div className="relative z-10 text-white text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Train. Compete. Thrive.
@@ -104,7 +107,7 @@ const Home = () => {
                 return (
                   <SwiperSlide
                     key={title}
-                    className="!flex justify-center rounded-[1.5rem]"
+                    className="!flex justify-center rounded-[1.5rem] bg-[#858585]"
                   >
                     <ProgramCard
                       {...{ title, desc, image, link, isContact }}
