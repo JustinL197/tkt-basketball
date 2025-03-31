@@ -53,7 +53,7 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Hero Section */}
       <section className="bg-white text-center min-h-[60vh] flex flex-col justify-center items-center px-4 relative">
         <video
@@ -96,14 +96,20 @@ const Home = () => {
               effect="cards"
               grabCursor={true}
               modules={[EffectCards]}
-              className="w-[85%] sm:w-[75%] max-w-[90%] mx-auto"
+              className="w-[75%] max-w-[90%] mx-auto overflow-hidden rounded-[1.5rem]"
             >
               {programs.map(({ title, desc, image, link }) => {
                 const isContact =
                   title.includes("Recreational") || title.includes("Elite");
                 return (
-                  <SwiperSlide key={title} className="!flex justify-center">
-                    <ProgramCard {...{ title, desc, image, link, isContact }} />
+                  <SwiperSlide
+                    key={title}
+                    className="!flex justify-center rounded-[1.5rem]"
+                  >
+                    <ProgramCard
+                      {...{ title, desc, image, link, isContact }}
+                      mobileShrink
+                    />
                   </SwiperSlide>
                 );
               })}
