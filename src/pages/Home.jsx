@@ -69,10 +69,10 @@ const Home = () => {
 
         <div className="relative z-10 text-white text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Train. Compete. Thrive.
+            Train. Compete. Succeed.
           </h1>
-          <p className="text-lg md:text-xl mb-8">
-            Join TKT’s premier programs today.
+          <p className="text-sm md:text-xl mb-8">
+            In Memory of Jacob Song.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
