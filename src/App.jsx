@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Register from "./pages/Register"; // ✅ Add this line
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Add more pages like Programs, Events, About as you go */}
+            <Route path="/register" element={<Register />} />{" "}
+            {/* ✅ Add this line */}
+            {/* You can add Programs, Events, About here later */}
           </Routes>
         </main>
       </div>

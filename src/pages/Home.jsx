@@ -76,7 +76,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/registration"
+              href="/register"
               className="bg-white text-[#000709] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition"
             >
               Register Now
