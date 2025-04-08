@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProgramCard = ({ title, desc, image, link, isContact, mobileShrink }) => (
   <div
     className={`bg-white rounded-[1.5rem] flex flex-col ${
@@ -31,12 +33,21 @@ const ProgramCard = ({ title, desc, image, link, isContact, mobileShrink }) => (
       >
         {desc}
       </p>
-      <a
-        href={link}
-        className="inline-block mt-auto text-center bg-[#000709] text-white px-4 py-2 rounded-xl hover:bg-[#1a1f2e] transition text-sm"
-      >
-        {isContact ? "Contact Us" : "Learn More"}
-      </a>
+      {link.startsWith("/") ? (
+        <Link
+          to={link}
+          className="inline-block mt-auto text-center bg-[#000709] text-white px-4 py-2 rounded-xl hover:bg-[#1a1f2e] transition text-sm"
+        >
+          {isContact ? "Contact Us" : "Learn More"}
+        </Link>
+      ) : (
+        <a
+          href={link}
+          className="inline-block mt-auto text-center bg-[#000709] text-white px-4 py-2 rounded-xl hover:bg-[#1a1f2e] transition text-sm"
+        >
+          {isContact ? "Contact Us" : "Learn More"}
+        </a>
+      )}
     </div>
   </div>
 );

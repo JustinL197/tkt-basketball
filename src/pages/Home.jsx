@@ -7,6 +7,9 @@ import image4 from "../assets/youth_program_img.png"
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import "swiper/css";
 import "swiper/css/effect-cards";
 
@@ -69,24 +72,34 @@ const Home = () => {
 
         <div className="relative z-10 text-white text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Train. Compete. Succeed.
+            Teamwork. Respect. Positivity. Hard Work
           </h1>
-          <p className="text-sm md:text-xl mb-8">
-            In Memory of Jacob Song.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="max-w-xl mx-auto mb-6"
+          >
+            <p className="text-sm md:text-lg italic text-white opacity-90">
+              Toronto Korean Tigers Basketball is a non-profit uniting the
+              Korean community through basketball and shared growth.
+            </p>
+            <div className="w-16 h-[2px] bg-white/50 mx-auto mt-4 rounded-full" />
+          </motion.div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/register"
+            <Link
+              to="/register"
               className="bg-white text-[#000709] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition"
             >
               Register Now
-            </a>
-            <a
-              href="/programs"
+            </Link>
+            <Link
+              to="/programs"
               className="bg-white text-[#000709] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition"
             >
               View Programs
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -95,28 +108,38 @@ const Home = () => {
       <section className="relative z-20 -mt-16 mb-16">
         <div className="w-full">
           {isMobile ? (
-            <Swiper
-              effect="cards"
-              grabCursor={true}
-              modules={[EffectCards]}
-              className="w-[75%] max-w-[90%] mx-auto overflow-hidden rounded-[1.5rem]"
-            >
-              {programs.map(({ title, desc, image, link }) => {
-                const isContact =
-                  title.includes("Recreational") || title.includes("Elite");
-                return (
-                  <SwiperSlide
-                    key={title}
-                    className="!flex justify-center rounded-[1.5rem] bg-[#858585]"
-                  >
-                    <ProgramCard
-                      {...{ title, desc, image, link, isContact }}
-                      mobileShrink
-                    />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+            <div className="relative">
+              {/* Swipeable Cards */}
+              <Swiper
+                effect="cards"
+                grabCursor={true}
+                modules={[EffectCards]}
+                className="w-[75%] max-w-[90%] mx-auto overflow-hidden rounded-[1.5rem]"
+              >
+                {programs.map(({ title, desc, image, link }, index) => {
+                  const isContact =
+                    title.includes("Recreational") || title.includes("Elite");
+                  return (
+                    <SwiperSlide
+                      key={title}
+                      className="!flex justify-center rounded-[1.5rem] bg-[#858585] relative"
+                    >
+                      {/* Swipe label on first card only */}
+                      {index === 0 && (
+                        <span className="absolute top-2 right-2 text-xs text-white bg-black/40 px-2 py-1 rounded-full z-10">
+                          Swipe →
+                        </span>
+                      )}
+
+                      <ProgramCard
+                        {...{ title, desc, image, link, isContact }}
+                        mobileShrink
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
           ) : (
             <div className="flex justify-center gap-[3rem] flex-wrap px-6 pb-10">
               {programs.map(({ title, desc, image, link }) => {
